@@ -69,4 +69,13 @@ public class ChampionTest {
         assertThat(championList.size(),is(5));
         assertThat(championList, hasSize(5));
     }
+
+    @Test
+    public void 서폿챔피언은타릭이어야한다(){
+        Champion supportChamp = new Champion("타릭","바텀");
+        assertThat("타릭", is(supportChamp.getName()));
+        assertThat("타릭",is(equalTo(supportChamp.getName())));
+        assertThat("타릭",equalTo(supportChamp.getName()));
+
+    }
 }

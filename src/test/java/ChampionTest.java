@@ -38,8 +38,21 @@ public class ChampionTest {
 
     @Test
     public void notNullCheck(){
-        String lck = "LCK";
+        String lck = "LKC";
         assertThat(lck, notNullValue());
     }
 
+    @Test
+    public void 연결확인테스트(){
+        String SampleString = "Player Focus";
+        String startString = "Player";
+        String endString = "Focus";
+        assertThat(SampleString,anyOf(startsWith(startString), containsString(endString)));
+        assertThat(SampleString, is(endsWith(endString)));
+    }
+
+    @Test
+    public void 부동소수점체크(){
+        assertThat(3.14,closeTo(3,0.1));
+    }
 }

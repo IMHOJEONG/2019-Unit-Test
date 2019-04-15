@@ -5,9 +5,11 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertTrue;
 
 //import static org.junit.Assert.*;
 
@@ -92,6 +94,16 @@ public class ChampionTest {
         assertThat(championNames.get(0), Matchers.<String>hasToString("루시안"));
     }
 
+    @Test
+    public void shouldTopChampionIsDarius(){
+        Optional<Champion> filteredChampion = championList.stream()
+                    .filter(c->c.getPosition().equals("탑"))
+                    .findFirst();
+        String champName = filteredChampion.get().getName();
+        assertTrue(champName.equals("다리우스"));
+        assertThat("다리우스",is(champName));
+
+    }
 
 
 }

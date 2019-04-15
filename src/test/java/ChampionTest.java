@@ -1,9 +1,13 @@
 import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+
+//import static org.junit.Assert.*;
 
 public class ChampionTest {
     private List<Champion> championList = new ArrayList<Champion>();
@@ -25,4 +29,17 @@ public class ChampionTest {
         championList.add(adcChamp);
         championList.add(supportChamp);
     }
+
+    @Test
+    public void givenCollectionWhenEmptyCorrect(){
+        List<String> emptyList = new ArrayList<String>();
+        assertThat(emptyList, empty());
+    }
+
+    @Test
+    public void notNullCheck(){
+        String lck = "LCK";
+        assertThat(lck, notNullValue());
+    }
+
 }

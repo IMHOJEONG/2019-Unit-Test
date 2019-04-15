@@ -42,7 +42,7 @@ public class ChampionTest {
 
     @Test
     public void notNullCheck(){
-        String lck = "LKC";
+        String lck = "LCK";
         assertThat(lck, notNullValue());
     }
 

@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -78,4 +79,19 @@ public class ChampionTest {
         assertThat("타릭",equalTo(supportChamp.getName()));
 
     }
+
+    @Test
+    public void shouldHasPropertyPosition(){
+        assertThat(championList.get(0), hasProperty("position"));
+        assertThat(championList.get(0), hasProperty("position",equalTo("탑")));
+    }
+
+    @Test
+    public void shouldHaveSomeChampName(){
+        List<String> championNames = Arrays.asList("루시안", "애쉬", "렉사이", "갈리오","모르가나", "블라디미르");
+        assertThat(championNames.get(0), Matchers.<String>hasToString("루시안"));
+    }
+
+
+
 }

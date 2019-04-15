@@ -1,3 +1,4 @@
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -54,5 +55,18 @@ public class ChampionTest {
     @Test
     public void 부동소수점체크(){
         assertThat(3.14,closeTo(3,0.1));
+    }
+
+    @Test
+    public void shouldNotErrorGetReference(){
+        assertThat(championList.get(2), anything());
+        // 값을 가져올 수만 있으면 나는 상관없다.
+        // 로직 자체가 정상인가?
+    }
+
+    @Test
+    public void shouldChampionCountFive(){
+        assertThat(championList.size(),is(5));
+        assertThat(championList, hasSize(5));
     }
 }
